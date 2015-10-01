@@ -4,7 +4,7 @@
   "description": "0.0.1",
   "main": "api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/connected-web/elda-ai/issues"
   },
-  "homepage": "https://github.com/connected-web/elda-ai"
+  "homepage": "https://github.com/connected-web/elda-ai",
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "mocha": "^2.3.3"
+  }
 }
