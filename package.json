@@ -2,9 +2,10 @@
   "name": "elda-ai",
   "version": "0.0.0",
   "description": "0.0.1",
-  "main": "api.js",
+  "main": "lib/api.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha"
+    "test": "node node_modules/mocha/bin/mocha",
+    "cli": "node lib/cli.js"
   },
   "repository": {
     "type": "git",
