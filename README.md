@@ -9,6 +9,21 @@ npm install
 npm test
 ```
 
+### Command Line Interface
+
+To interact with a local copy of Elda:
+```
+npm install
+node cli.js
+```
+
+To exit the interface, type one of `exit`, `quit`, `stop`, or `bye`:
+```
+I'm listening
+: quit
+Ok, bye!
+```
+
 ## Structure
 
 ### `api.js`
