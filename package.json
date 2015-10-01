@@ -1,0 +1,22 @@
+{
+  "name": "elda-ai",
+  "version": "0.0.0",
+  "description": "0.0.1",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/connected-web/elda-ai.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "John Beech",
+  "license": "None",
+  "bugs": {
+    "url": "https://github.com/connected-web/elda-ai/issues"
+  },
+  "homepage": "https://github.com/connected-web/elda-ai"
+}
