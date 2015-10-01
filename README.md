@@ -31,7 +31,7 @@ To use Elda as a library, run:
 npm install elda-ai --save
 ```
 
-Then create a script as follows:
+Then create the script `example.js` as follows:
 ```js
 var elda = require('elda-ai');
 var messages = [
@@ -45,11 +45,16 @@ messages.forEach(function(message) {
 });
 ```
 
+Run the example using the command:
+```
+node example.js
+```
+
 ## Library Structure
 
+### `api.js`
 This is the public interface to Elda.
 
-### `api.js`
 #### `elda(config)`
 This method configures and returns an API object, which can then be used to interact with Elda.
 
