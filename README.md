@@ -45,7 +45,27 @@ messages.forEach(function(message) {
 });
 ```
 
-## Structure
+## Library Structure
+
+This is the public interface to Elda.
 
 ### `api.js`
-This is the public interface to elda, it has one key method, `respondTo(string)` which returns a promise.
+h4. fn(config)
+This method configures and returns an API object, which can then be used to interact with Elda.
+
+h5. Example
+```js
+var elda = require('elda-ai');
+var config = {};
+var api = elda(config);
+```
+
+h4. `api.respondTo(message)`
+This method intereprets a message, and forms a response.
+
+h5. Example
+```js
+var elda = require('elda-ai');
+var message = 'Add event Kate\'s birthday party, at 5pm tomorrow';
+elda().respondTo(message).then(console.log);
+```
