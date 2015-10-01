@@ -1,7 +1,7 @@
 {
   "name": "elda-ai",
-  "version": "0.0.0",
-  "description": "0.0.1",
+  "version": "0.0.1",
+  "description": "A natural language interface for storing and retrieving information.",
   "main": "lib/api.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha",
