@@ -50,20 +50,18 @@ messages.forEach(function(message) {
 This is the public interface to Elda.
 
 ### `api.js`
-h4. fn(config)
+#### `elda(config)`
 This method configures and returns an API object, which can then be used to interact with Elda.
 
-h5. Example
 ```js
 var elda = require('elda-ai');
 var config = {};
 var api = elda(config);
 ```
 
-h4. `api.respondTo(message)`
-This method intereprets a message, and forms a response.
+#### `api.respondTo(message)`
+This method interprets a message, and forms a response.
 
-h5. Example
 ```js
 var elda = require('elda-ai');
 var message = 'Add event Kate\'s birthday party, at 5pm tomorrow';
