@@ -24,6 +24,27 @@ I'm listening
 Ok, bye!
 ```
 
+### Use as a library
+
+To use Elda as a library, run:
+```
+npm install elda-ai --save
+```
+
+Then create a script as follows:
+```js
+var elda = require('elda-ai');
+var messages = [
+  'hello',
+  'what is this for?',
+  'help!',
+  'lets take this from the top'
+];
+messages.forEach(function(message) {
+  elda().respondTo(message).then(console.log);
+});
+```
+
 ## Structure
 
 ### `api.js`
