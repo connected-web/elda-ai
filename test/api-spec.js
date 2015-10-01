@@ -12,9 +12,8 @@ describe('API', function() {
 
   describe('respondTo', function() {
 
-    it('should be exposed as a function', function(done) {
+    it('should be exposed as a function', function() {
       expect(typeof instance.respondTo).to.equal('function');
-      done();
     });
 
     it('should return a promise', function() {
