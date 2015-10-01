@@ -23,7 +23,8 @@ function ask(question) {
 }
 
 function exitCheck(input, fn) {
-  if(new RegExp('([exit|quit|stop])').test(input)) {
+  var check = new RegExp('(exit|quit|stop|bye)');
+  if(check.test(input)) {
     fn();
   }
 }
