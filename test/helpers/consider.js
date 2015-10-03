@@ -2,8 +2,7 @@ function consider(fn, done) {
   try {
     fn();
     done();
-  }
-  catch(ex) {
+  } catch (ex) {
     done(ex);
   }
 }

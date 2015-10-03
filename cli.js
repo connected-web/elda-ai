@@ -26,7 +26,7 @@ function ask(question) {
 
 function exitCheck(input, fn) {
   var check = new RegExp('(exit|quit|stop|bye)');
-  if(check.test(input)) {
+  if (check.test(input)) {
     fn();
   }
 }
