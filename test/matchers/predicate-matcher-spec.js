@@ -3,7 +3,7 @@ var match = require('../../lib/matchers/predicate-matcher');
 
 describe('Predicate matcher', function() {
   it('should match statements in the form "x is y"', function() {
-    var actual = match('x is y', 'is');
+    var actual = match('is')('x is y');
     var expected = {
       subject: 'x',
       predicate: 'is',
@@ -14,7 +14,7 @@ describe('Predicate matcher', function() {
   });
 
   it('should match statements in the form "a are b" using the predicate "are"', function() {
-    var actual = match('Apples are green', 'are');
+    var actual = match('are')('Apples are green');
     var expected = {
       subject: 'Apples',
       predicate: 'are',
@@ -25,14 +25,14 @@ describe('Predicate matcher', function() {
   });
 
   it('should not match statements that are missing the predicate keyword', function() {
-    var actual = match('John likes people', 'are');
+    var actual = match('not')('John likes people');
     var expected = false;
 
     expect(actual).to.deep.equal(expected);
   });
 
   it('should not match statements that begin with the predicate', function() {
-    var actual = match('are not ok', 'are');
+    var actual = match('are')('are not ok');
     var expected = false;
 
     expect(actual).to.deep.equal(expected);
