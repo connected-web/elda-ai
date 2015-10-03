@@ -18,6 +18,8 @@ function ask(question) {
 
     conciousness.respondTo(input).then(function(response) {
       ask(response);
+    }, function(rejection) {
+      ask(rejection);
     });
   });
 }
