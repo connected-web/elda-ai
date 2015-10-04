@@ -18,13 +18,15 @@ function ask(question) {
 
     conciousness.respondTo(input).then(function(response) {
       ask(response);
+    }, function(rejection) {
+      ask(rejection);
     });
   });
 }
 
 function exitCheck(input, fn) {
   var check = new RegExp('(exit|quit|stop|bye)');
-  if(check.test(input)) {
+  if (check.test(input)) {
     fn();
   }
 }
