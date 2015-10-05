@@ -37,4 +37,17 @@ describe('Neural Structure', function() {
 
     expect(JSON.stringify(actual)).to.equal(JSON.stringify(expected));
   });
+
+  it('should be able to retreive tell me things about John', function() {
+    testNetwork.store('John', 'is', '30');
+    testNetwork.store('John', 'was born on', '21st May 2015');
+    testNetwork.store('John', 'likes', 'programming');
+    testNetwork.store('John', 'lives in', 'Manchester');
+    testNetwork.store('John', 'lives in', 'England');
+
+    var actual = testNetwork.describe('John');
+    var expected = ['is 30', 'was born on 21st May 2015', 'likes programming', 'lives in Manchester', 'lives in England'];
+
+    expect(JSON.stringify(actual)).to.equal(JSON.stringify(expected));
+  });
 });
