@@ -2,7 +2,7 @@ var NL = '\n';
 var elda = require('./lib/api');
 
 var config = {};
-var conciousness = elda(config);
+var conciousness;
 
 function ask(question) {
   var stdin = process.stdin,
@@ -38,7 +38,9 @@ function exitState() {
 }
 
 function main() {
-  ask('I\'m listening' + NL);
+  elda(config).then(function() {
+    ask('I\'m listening' + NL);
+  });
 }
 
 main();

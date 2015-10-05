@@ -6,8 +6,11 @@ describe('API', function() {
 
   var instance;
 
-  beforeEach(function() {
-    instance = elda();
+  beforeEach(function(done) {
+    elda().then(function(result) {
+      instance = result;
+      done();
+    });
   });
 
   describe('respondTo', function() {

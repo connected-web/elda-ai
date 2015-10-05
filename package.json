@@ -4,7 +4,7 @@
   "description": "A natural language interface for storing and retrieving information.",
   "main": "lib/api.js",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha --recursive",
+    "test": "node node_modules/mocha/bin/mocha --recursive --no-timeouts",
     "cli": "node lib/cli.js"
   },
   "repository": {

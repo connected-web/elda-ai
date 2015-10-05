@@ -29,3 +29,4 @@ node_modules
 # Local files and folders under test
 test.js
 /memory
+/temp
