@@ -26,4 +26,15 @@ describe('Neural Structure', function() {
 
     expect(JSON.stringify(actual)).to.equal(JSON.stringify(expected));
   });
+
+  it('should be able to retreive a list of objects for the inverse of a predicate', function() {
+    testNetwork.store('a', 'is', 'x');
+    testNetwork.store('b', 'is', 'x');
+    testNetwork.store('c', 'is', 'x');
+
+    var actual = testNetwork.retrieve('x', '~is');
+    var expected = ['a', 'b', 'c'];
+
+    expect(JSON.stringify(actual)).to.equal(JSON.stringify(expected));
+  });
 });
