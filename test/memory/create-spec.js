@@ -2,21 +2,16 @@ var expect = require('chai').expect;
 var create = require('../../lib/memory/create');
 var consider = require('../helpers/consider');
 var fs = require('fs');
+var UTF8 = 'utf-8';
 
-describe('Create Memory', function() {
+describe('Memory Create', function() {
 
-  var tempDir = process.cwd() + '/temp';
-  var testConfig = {
-    memory: {
-      local: tempDir,
-      remote: 'git@github.com:connected-web/remote-test.git'
-    }
-  };
+  var testConfig = require('./memory-config');
 
   it('retreive files from a remote location', function(done) {
     create(testConfig).then(function(actual) {
       consider(function() {
-        var testFile = JSON.parse(fs.readFileSync('./temp/info.json', 'utf-8'));
+        var testFile = JSON.parse(fs.readFileSync('./temp/info.json', UTF8));
         expect(testFile).to.have.property('file', 'info.json');
       }, done);
     }, function(ex) {
