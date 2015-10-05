@@ -9,7 +9,11 @@ describe('Create Memory', function() {
   var testConfig = {
     memory: {
       local: tempDir,
-      remote: 'git@github.com:connected-web/remote-test.git'
+      remote: 'git@github.com:connected-web/remote-test.git',
+      user: {
+        name: 'Mocha Test',
+        email: 'mocha-test@mkv25.net'
+      }
     }
   };
 

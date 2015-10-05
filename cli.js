@@ -38,8 +38,11 @@ function exitState() {
 }
 
 function main() {
-  elda(config).then(function() {
+  elda(config).then(function(result) {
+    conciousness = result;
     ask('I\'m listening' + NL);
+  }, function(ex) {
+    console.log('Rejected config', ex);
   });
 }
 
