@@ -22,7 +22,6 @@ describe('Memory Store', function() {
     }
 
     function storeReference(reference) {
-      console.log('What is reference at this point?', reference);
       memory = reference;
     }
 
