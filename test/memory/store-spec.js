@@ -1,6 +1,5 @@
 var expect = require('chai').expect;
 var create = require('../../lib/memory/create');
-var git = require('../../lib/memory/git');
 var consider = require('../helpers/consider');
 var fs = require('fs');
 var UTF8 = 'utf-8';
@@ -12,8 +11,10 @@ describe('Memory Store', function() {
   it('store files to a remote location', function(done) {
     var updateCount = 0;
     var timestamp = Date.now();
+    var state;
     create(testConfig)
       .then(function(memory) {
+        state = memory;
         var testFile = JSON.parse(fs.readFileSync('./temp/counter.json', UTF8));
         updateCount = testFile.updates + 1;
         timestamp = timestamp;
@@ -26,7 +27,7 @@ describe('Memory Store', function() {
       })
       .then(function() {
         console.log('Cleaning up', testConfig.memory.local);
-        return git.clean(testConfig.memory.local);
+        return state.clean();
       })
       .then(function() {
         console.log('Recreating repo');
