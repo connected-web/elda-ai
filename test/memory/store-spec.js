@@ -23,6 +23,7 @@ describe('Memory Store', function() {
         testFile.timestamp = timestamp;
         fs.writeFileSync('./temp/counter.json', JSON.stringify(testFile, null, 4), UTF8);
 
+        console.log('What is memory at this point', memory);
         return memory.store('Updating counter');
       })
       .then(function() {
