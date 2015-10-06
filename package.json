@@ -15,7 +15,7 @@
     "nodejs"
   ],
   "author": "John Beech",
-  "license": "None",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/connected-web/elda-ai/issues"
   },
