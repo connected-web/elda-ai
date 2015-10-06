@@ -1,9 +1,11 @@
 function consider(fn, done) {
-  try {
-    fn();
-    done();
-  } catch (ex) {
-    done(ex);
+  return function() {
+    try {
+      fn();
+      done();
+    } catch (ex) {
+      done(ex);
+    }
   }
 }
 

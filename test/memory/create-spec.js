@@ -9,13 +9,12 @@ describe('Memory Create', function() {
   var testConfig = require('./memory-config');
 
   it('retreive files from a remote location', function(done) {
-    create(testConfig).then(function(actual) {
-      consider(function() {
-        var testFile = JSON.parse(fs.readFileSync('./temp/info.json', UTF8));
-        expect(testFile).to.have.property('file', 'info.json');
-      }, done);
-    }, function(ex) {
-      done(ex);
-    });
+    function test() {
+      var testFile = JSON.parse(fs.readFileSync('./temp/info.json', UTF8));
+      expect(testFile).to.have.property('file', 'info.json');
+      done();
+    }
+
+    create(testConfig).then(test, done);
   });
 });

@@ -1,5 +1,4 @@
 var expect = require('chai').expect;
-var consider = require('./helpers/consider');
 var elda = require('../lib/api.js');
 
 describe('API', function() {
@@ -25,24 +24,30 @@ describe('API', function() {
     });
 
     it('should reject empty or null messages with an exception', function(done) {
-      instance.respondTo(null).then(function() {
+
+      var expected = 'No message provided'
+
+      function testException(actual) {
+        expect(actual).to.equal(expected);
+        done();
+      }
+
+      function fail() {
         done('Unexpected success');
-      }, function(ex) {
-        consider(function() {
-          expect(ex).to.equal('No message provided');
-        }, done);
-      });
+      }
+
+      instance.respondTo(null).then(fail, testException);
     });
 
     it('should analyse and respond to a message', function(done) {
       var expected = 'instruction';
-      instance.respondTo(expected).then(function(actual) {
-        consider(function() {
-          expect(actual).to.equal('Received message: ' + expected);
-        }, done);
-      }, function(ex) {
-        done(ex);
-      });
+
+      function test(actual) {
+        expect(actual).to.equal('Received message: ' + expected);
+        done();
+      }
+
+      instance.respondTo(expected).then(test, done);
     });
   });
 });
