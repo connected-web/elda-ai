@@ -5,8 +5,14 @@ describe('API', function() {
 
   var instance;
 
+  var testConfig = {
+    memory: {
+      type: 'none'
+    }
+  }
+
   beforeEach(function(done) {
-    elda().then(function(result) {
+    elda(testConfig).then(function(result) {
       instance = result;
       done();
     });
@@ -28,8 +34,12 @@ describe('API', function() {
       var expected = 'No message provided'
 
       function testException(actual) {
-        expect(actual).to.equal(expected);
-        done();
+        try {
+          expect(actual).to.equal(expected);
+          done();
+        } catch (ex) {
+          done(ex);
+        }
       }
 
       function fail() {
