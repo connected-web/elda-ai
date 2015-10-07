@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var create = require('../../lib/memory/create');
+var create = require('../../lib/memory/api');
 var consider = require('../helpers/consider');
 var fs = require('fs');
 var UTF8 = 'utf-8';
