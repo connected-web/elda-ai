@@ -5,9 +5,11 @@ describe('Predicate matcher', function() {
   it('should match statements in the form "x is y"', function() {
     var actual = match('is')('x is y');
     var expected = {
-      subject: 'x',
-      predicate: 'is',
-      object: 'y'
+      triple: {
+        subject: 'x',
+        predicate: 'is',
+        object: 'y'
+      }
     };
 
     expect(actual).to.deep.equal(expected);
@@ -16,9 +18,11 @@ describe('Predicate matcher', function() {
   it('should match statements in the form "a are b" using the predicate "are"', function() {
     var actual = match('are')('Apples are green');
     var expected = {
-      subject: 'Apples',
-      predicate: 'are',
-      object: 'green'
+      triple: {
+        subject: 'Apples',
+        predicate: 'are',
+        object: 'green'
+      }
     };
 
     expect(actual).to.deep.equal(expected);
