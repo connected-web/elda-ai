@@ -5,7 +5,7 @@ describe('Predicate matcher', function() {
   it('should match statements in the form "x is y"', function() {
     var actual = match('is')('x is y');
     var expected = {
-      triple: {
+      triplet: {
         subject: 'x',
         predicate: 'is',
         object: 'y'
@@ -18,7 +18,7 @@ describe('Predicate matcher', function() {
   it('should match statements in the form "a are b" using the predicate "are"', function() {
     var actual = match('are')('Apples are green');
     var expected = {
-      triple: {
+      triplet: {
         subject: 'Apples',
         predicate: 'are',
         object: 'green'
