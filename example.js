@@ -3,9 +3,13 @@ var messages = [
   'hello',
   'what is this for?',
   'help!',
-  'lets take this from the top'
+  'lets take this from the top',
+  'describe what',
+  'list this for?'
 ];
 
-messages.forEach(function(message) {
-  elda().respondTo(message).then(console.log);
+elda().then(function(instance) {
+  messages.forEach(function(message) {
+    instance.respondTo(message).then(console.log);
+  });
 });
