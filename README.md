@@ -24,6 +24,10 @@ I'm listening
 Ok, bye!
 ```
 
+### Design
+
+![Elda AI Design](https://goo.gl/rAS0gR)
+
 ### Use as a library
 
 To use Elda as a library, run:
