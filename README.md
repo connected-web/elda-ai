@@ -44,9 +44,13 @@ var messages = [
   'help!',
   'lets take this from the top'
 ];
-messages.forEach(function(message) {
-  elda().respondTo(message).then(console.log);
+
+elda().then(function(instance) {
+  messages.forEach(function(message) {
+    instance.respondTo(message).then(console.log);
+  });
 });
+
 ```
 
 Run the example using the command:
