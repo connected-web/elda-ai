@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var matcher = require('../../lib/matchers/command-matcher');
+var matcher = require('../../lib/matcher/command-matcher');
 
 describe('Command matcher', function() {
   it('should match statements in the form "command instruction"', function() {

@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var match = require('../../lib/matchers/predicate-matcher');
+var match = require('../../lib/matcher/predicate-matcher');
 
 describe('Predicate matcher', function() {
   it('should match statements in the form "x is y"', function() {
