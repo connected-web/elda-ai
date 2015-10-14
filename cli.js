@@ -20,6 +20,8 @@ function ask(question) {
       ask(response);
     }, function(rejection) {
       ask(rejection);
+    }).catch(function(ex) {
+      stdout.write(`chii~ ${ex}`);
     });
   });
 }
@@ -27,20 +29,31 @@ function ask(question) {
 function exitCheck(input, fn) {
   var check = new RegExp('(exit|quit|stop|bye)');
   if (check.test(input)) {
-    fn();
+    fn(input);
   }
 }
 
-function exitState() {
+function exitState(type) {
   var stdout = process.stdout;
-  stdout.write('Ok, bye!');
+  stdout.write('Ok...');
+  conciousness.shutdown(`Console ${type}`).then(function() {
+    kill(type);
+  }).catch(function(ex) {
+    console.error('oops~', ex);
+    kill(type);
+  });
+}
+
+function kill(type) {
+  var stdout = process.stdout;
+  stdout.write(`...${type}!`);
   process.exit(0);
 }
 
 function main() {
   elda(config).then(function(result) {
     conciousness = result;
-    ask('I\'m listening' + NL);
+    ask(`I'm listening${NL}`);
   }, function(ex) {
     console.log('Rejected config', ex);
   });
