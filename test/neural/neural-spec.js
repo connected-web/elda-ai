@@ -30,7 +30,7 @@ describe('Neural Structure', function() {
       var actual = testNetwork.retrieve('x', 'is');
       var expected = ['a', 'b', 'c'];
 
-      expect(JSON.stringify(actual)).to.equal(JSON.stringify(expected));
+      expect(actual).to.deep.equal(expected);
     });
 
     it('should be able to retreive a list of objects for the inverse of a predicate', function() {
@@ -41,7 +41,7 @@ describe('Neural Structure', function() {
       var actual = testNetwork.retrieve('x', '~is');
       var expected = ['a', 'b', 'c'];
 
-      expect(JSON.stringify(actual)).to.equal(JSON.stringify(expected));
+      expect(actual).to.deep.equal(expected);
     });
   });
 
@@ -56,7 +56,7 @@ describe('Neural Structure', function() {
       var actual = testNetwork.describe('John');
       var expected = ['is 30', 'was born on 21st May 2015', 'likes programming', 'lives in Manchester', 'lives in England'];
 
-      expect(JSON.stringify(actual)).to.equal(JSON.stringify(expected));
+      expect(actual).to.deep.equal(expected);
     });
   });
 
@@ -66,9 +66,29 @@ describe('Neural Structure', function() {
       testNetwork.store('a', 'is a', 'letter');
       testNetwork.store('b', 'is a', 'letter');
       testNetwork.store('c', 'is a', 'letter');
-      var actual = testNetwork.subjects();
 
-      expect(actual).to.deep.equal(['1', 'number', 'a', 'letter', 'b', 'c']);
+      var actual = testNetwork.subjects();
+      var expected = ['1', 'number', 'a', 'letter', 'b', 'c'];
+
+      expect(actual).to.deep.equal(expected);
+    });
+  });
+
+  describe('serialize', function() {
+    it('should be able to serialize all knowledge about a subject', function() {
+      testNetwork.store('1', 'is a', 'number');
+      testNetwork.store('a', 'is a', 'letter');
+      testNetwork.store('b', 'is a', 'letter');
+      testNetwork.store('c', 'is a', 'letter');
+
+      var actual = testNetwork.serialize('letter');
+      var expected = [
+        ['letter', '~is a', 'a'],
+        ['letter', '~is a', 'b'],
+        ['letter', '~is a', 'c']
+      ];
+
+      expect(actual).to.deep.equal(expected);
     });
   });
 
