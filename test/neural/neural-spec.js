@@ -3,7 +3,7 @@ var network = require('../../lib/neural/network');
 
 describe('Neural Structure', function() {
 
-  var testNetwork = network();
+  var testNetwork;
 
   beforeEach(function() {
     testNetwork = network();
@@ -57,6 +57,18 @@ describe('Neural Structure', function() {
       var expected = ['is 30', 'was born on 21st May 2015', 'likes programming', 'lives in Manchester', 'lives in England'];
 
       expect(JSON.stringify(actual)).to.equal(JSON.stringify(expected));
+    });
+  });
+
+  describe('subjects', function() {
+    it('should be able to list all subjects that it has knowledge of', function() {
+      testNetwork.store('1', 'is a', 'number');
+      testNetwork.store('a', 'is a', 'letter');
+      testNetwork.store('b', 'is a', 'letter');
+      testNetwork.store('c', 'is a', 'letter');
+      var actual = testNetwork.subjects();
+
+      expect(actual).to.deep.equal(['1', 'number', 'a', 'letter', 'b', 'c']);
     });
   });
 
