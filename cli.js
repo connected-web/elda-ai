@@ -54,7 +54,7 @@ function main() {
   elda(config).then(function(result) {
     conciousness = result;
     ask(`I'm listening${NL}`);
-  }, function(ex) {
+  }).catch(function(ex) {
     console.log('Rejected config', ex);
   });
 }

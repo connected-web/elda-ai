@@ -72,6 +72,17 @@ describe('Neural Structure', function() {
 
       expect(actual).to.deep.equal(expected);
     });
+
+    it('should not list duplicate information', function() {
+      testNetwork.store('1', 'is a', 'number');
+      testNetwork.store('1', 'is a', 'number');
+      testNetwork.store('1', 'is a', 'number');
+
+      var actual = testNetwork.subjects();
+      var expected = ['1', 'number'];
+
+      expect(actual).to.deep.equal(expected);
+    });
   });
 
   describe('serialize', function() {
@@ -86,6 +97,19 @@ describe('Neural Structure', function() {
         ['letter', '~is a', 'a'],
         ['letter', '~is a', 'b'],
         ['letter', '~is a', 'c']
+      ];
+
+      expect(actual).to.deep.equal(expected);
+    });
+
+    it('should not serialize duplicate information', function() {
+      testNetwork.store('1', 'is a', 'number');
+      testNetwork.store('1', 'is a', 'number');
+      testNetwork.store('1', 'is a', 'number');
+
+      var actual = testNetwork.serialize('number');
+      var expected = [
+        ['number', '~is a', '1']
       ];
 
       expect(actual).to.deep.equal(expected);
