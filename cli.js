@@ -33,20 +33,20 @@ function exitCheck(input, fn) {
   }
 }
 
-function exitState(type) {
+function exitState(command) {
   var stdout = process.stdout;
   stdout.write('Ok...');
-  conciousness.shutdown(`Console ${type}`).then(function() {
-    kill(type);
+  conciousness.shutdown(`${command}`).then(function() {
+    kill(command);
   }).catch(function(ex) {
     console.error('oops~', ex);
-    kill(type);
+    kill(command);
   });
 }
 
-function kill(type) {
+function kill(command) {
   var stdout = process.stdout;
-  stdout.write(`...${type}!`);
+  stdout.write(`...${command}!`);
   process.exit(0);
 }
 
