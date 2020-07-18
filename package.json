@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "elda-ai-memory": "1.x.x",
-    "lodash": "^3.10.1"
+    "lodash": "^4.17.19"
   },
   "engine": "node >= 4.1.1"
 }
